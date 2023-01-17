@@ -20,7 +20,7 @@ function ExperienceCard({}: Props) {
           opacity: 1,
         }}
         viewport={{ once: true }}
-        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-top"
         src="https://scontent-lax3-2.xx.fbcdn.net/v/t39.30808-6/325852354_1195828591327635_1420710896402738339_n.jpg?stp=dst-jpg_p526x296&_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=A0tqpobMMkoAX9UGtha&tn=HhcxcWqy8EKiOyLE&_nc_ht=scontent-lax3-2.xx&oh=00_AfAQpISXFpMlE5ds-uFxu_nDZJVO7IAKoltSEGv1ppAEZQ&oe=63C90AD8"
         alt=""
       />
@@ -29,16 +29,14 @@ function ExperienceCard({}: Props) {
         <h4 className="text-4xl font-light">Job Title</h4>
         <p className="font-bold text-2xl mt-1">Company Name</p>
         <div className="flex space-x-2 my-2">
-          <Image src="/../public/favicon.ico" alt="" width={30} height={30} />
-          <Image src="/../public/favicon.ico" alt="" width={30} height={30} />
-          <Image src="/../public/favicon.ico" alt="" width={30} height={30} />
-          <Image src="/../public/favicon.ico" alt="" width={30} height={30} />
+          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
+          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
+          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
+          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
         </div>
         <p className="uppercase py-5 text-gray-300">Started... - Ended...</p>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Summary points Summary points Summary points Summary points</li>
-          <li>Summary points Summary points Summary points Summary points</li>
+        <ul className="list-disc space-y-4 ml-5 text-md">
           <li>Summary points Summary points Summary points Summary points</li>
           <li>Summary points Summary points Summary points Summary points</li>
           <li>Summary points Summary points Summary points Summary points</li>
