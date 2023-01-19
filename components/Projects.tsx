@@ -17,7 +17,7 @@ function Projects({ }: Props) {
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
         {projects.map((project, i) => (
           // eslint-disable-next-line react/jsx-key
           <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
@@ -36,7 +36,7 @@ function Projects({ }: Props) {
               </h4>
 
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sequi officia aperiam quas cumque dolor ratione nostrum eligendi velit nam. Fuga perspiciatis inventore esse asperiores voluptatum quisquam facere atque reiciendis?
               </p>
             </div>
           </div>
