@@ -1,9 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { PageInfo } from '@/typings'
+import { urlFor } from '@/sanity'
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo
+}
 
-function About({}: Props) {
+function About({pageInfo}: Props) {
   return (
     <motion.div
       initial={{
@@ -33,7 +37,7 @@ function About({}: Props) {
           opacity: 1,
         }}
         viewport={{ once: true }}
-        src="https://scontent-lax3-2.xx.fbcdn.net/v/t39.30808-6/325852354_1195828591327635_1420710896402738339_n.jpg?stp=dst-jpg_p526x296&_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=A0tqpobMMkoAX9UGtha&tn=HhcxcWqy8EKiOyLE&_nc_ht=scontent-lax3-2.xx&oh=00_AfAQpISXFpMlE5ds-uFxu_nDZJVO7IAKoltSEGv1ppAEZQ&oe=63C90AD8"
+        src={urlFor(pageInfo?.profilePicture).url()}
         alt=""
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
       />
@@ -43,7 +47,7 @@ function About({}: Props) {
           Here&apos;s a little background
         </h4>
         <p className="text-base">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sequi officia aperiam quas cumque dolor ratione nostrum eligendi velit nam. Fuga perspiciatis inventore esse asperiores voluptatum quisquam facere atque reiciendis?
+          {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>

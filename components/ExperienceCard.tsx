@@ -1,10 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Experience } from '@/typings';
+import { urlFor } from '@/sanity';
 
-type Props = {}
+type Props = {
+  experience: Experience;
+}
 
-function ExperienceCard({}: Props) {
+function ExperienceCard({ experience }: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[800px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
@@ -21,25 +25,31 @@ function ExperienceCard({}: Props) {
         }}
         viewport={{ once: true }}
         className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-top"
-        src="https://scontent-lax3-2.xx.fbcdn.net/v/t39.30808-6/325852354_1195828591327635_1420710896402738339_n.jpg?stp=dst-jpg_p526x296&_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=A0tqpobMMkoAX9UGtha&tn=HhcxcWqy8EKiOyLE&_nc_ht=scontent-lax3-2.xx&oh=00_AfAQpISXFpMlE5ds-uFxu_nDZJVO7IAKoltSEGv1ppAEZQ&oe=63C90AD8"
+        src={urlFor(experience?.companyImage).url()}
         alt=""
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">Job Title</h4>
-        <p className="font-bold text-2xl mt-1">Company Name</p>
+        <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
+        <p className="font-bold text-2xl mt-1">{experience.company}</p>
         <div className="flex space-x-2 my-2">
-          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
-          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
-          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
-          <Image src="/../public/favicon.ico" alt="" width={10} height={10} className="h-10 w-10 rounded-full" />
+          {experience.technologies.map((technology) => (
+            <Image
+              key={technology._id}
+              width={50}
+              height={50}
+              src={urlFor(technology.image).url()}
+              alt={''}
+            />
+          ))}
         </div>
-        <p className="uppercase py-5 text-gray-300">Started... - Ended...</p>
+        <p className="uppercase py-5 text-gray-300">{new Date(experience.dateStarted).toDateString()} -{' '}
+          {experience.isCurrentlyWorkingHere ? 'Present' : new Date(experience.dateEnded).toDateString()}</p>
 
-        <ul className="list-disc space-y-4 ml-5 text-md">
-          <li>Summary points Summary points Summary points Summary points</li>
-          <li>Summary points Summary points Summary points Summary points</li>
-          <li>Summary points Summary points Summary points Summary points</li>
+        <ul className="list-disc space-y-4 ml-5 text-md max-h-96 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+          {experience.points.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>
