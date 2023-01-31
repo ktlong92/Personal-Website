@@ -37,17 +37,17 @@ function ContactMe({pageInfo}: Props) {
 
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <PhoneIcon className="text-[#04D347] h-7 w-7 animate-pulse" />
             <p className="text-2xl">{pageInfo.phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <EnvelopeIcon className="text-[#04D347] h-7 w-7 animate-pulse" />
             <p className="text-2xl">{pageInfo.email}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <MapPinIcon className="text-[#04D347] h-7 w-7 animate-pulse" />
             <p className="text-2xl">{pageInfo.address}</p>
           </div>
         </div>
@@ -85,7 +85,7 @@ function ContactMe({pageInfo}: Props) {
           />
           <button
             type="submit"
-            className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
+            className="bg-[#04D347] py-5 px-10 rounded-md text-black font-bold text-lg"
           >
             Submit
           </button>

@@ -26,7 +26,7 @@ type Props = {
 
 const Home = ({pageInfo, experiences, skills, socials, projects}: Props) => {
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#04D347]/80">
       <Head>
         <title>Kaleb Long</title>
       </Head>
@@ -68,9 +68,11 @@ const Home = ({pageInfo, experiences, skills, socials, projects}: Props) => {
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
             <Image
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src="https://i.imgur.com/e2yvD6A.png"
+              className="rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+              src="https://avatars.githubusercontent.com/u/83083987?v=4"
               alt=""
+              width={50}
+              height={50}
             />
           </div>
         </footer>
@@ -81,12 +83,12 @@ const Home = ({pageInfo, experiences, skills, socials, projects}: Props) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = fetchExperiences();
-  const skills: Skill[] = fetchSkills();
-  const projects: Project[] = fetchProjects();
-  const socials: Social[] = fetchSocials();
+  const experiences: Experience[] = await fetchExperiences();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
 
   return {
     props: {
@@ -97,6 +99,6 @@ export async function getStaticProps() {
       socials,
     },
 
-    revalidate: 60 * 60 * 24, // 24 hours
+    revalidate: 60 * 60 * 1, // every hour
   };
 }

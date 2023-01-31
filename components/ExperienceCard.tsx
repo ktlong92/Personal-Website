@@ -36,6 +36,7 @@ function ExperienceCard({ experience }: Props) {
           {experience.technologies.map((technology) => (
             <Image
               key={technology._id}
+              className="rounded-full xl:w-[50px] xl:h-[50px] object-center"
               width={50}
               height={50}
               src={urlFor(technology.image).url()}
@@ -46,7 +47,7 @@ function ExperienceCard({ experience }: Props) {
         <p className="uppercase py-5 text-gray-300">{new Date(experience.dateStarted).toDateString()} -{' '}
           {experience.isCurrentlyWorkingHere ? 'Present' : new Date(experience.dateEnded).toDateString()}</p>
 
-        <ul className="list-disc space-y-4 ml-5 text-md max-h-96 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+        <ul className="list-disc space-y-4 ml-5 text-md max-h-96 pr-5 overflow-y-scroll scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#04D347]/80">
           {experience.points.map((point, i) => (
             <li key={i}>{point}</li>
           ))}

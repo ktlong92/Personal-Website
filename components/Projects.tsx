@@ -21,7 +21,7 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#04D347]/80">
         {projects?.map((project, i) => (
           // eslint-disable-next-line react/jsx-key
           <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
@@ -31,6 +31,7 @@ function Projects({ projects }: Props) {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               src={urlFor(project.image).url()}
+              className="w-1/4 h-full object-cover rounded-2xl"
               alt=""
             />
 
@@ -43,10 +44,11 @@ function Projects({ projects }: Props) {
                 {project?.technologies.map((technology) => (
                   <Image
                     key={technology._id}
+                    className="h-20 w-20 rounded-full object-cover"
                     src={urlFor(technology.image).url()}
                     alt={''}
-                    width={10}
-                    height={10}
+                    width={100}
+                    height={100}
                   />
                 ))}
               </div>
@@ -59,7 +61,7 @@ function Projects({ projects }: Props) {
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
+      <div className="w-full absolute top-[30%] bg-[#04D347]/10 left-0 h-[500px] -skew-y-12" />
     </motion.div>
   )
 }
